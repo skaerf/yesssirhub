@@ -1,0 +1,12 @@
+name: yesssirhub
+version: '1.5'
+authors: [skaerf]
+main: xyz.skaerf.yesssirhub.Yesssirhub
+api-version: '1.18'
+depend:
+  - LuckPerms
+commands:
+  gm:
+    aliases: [gmc, gms, gma, gmsp]
+  compass:
+    aliases: [c, menu, selector]
