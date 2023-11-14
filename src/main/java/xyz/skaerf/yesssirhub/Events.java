@@ -114,6 +114,7 @@ public class Events implements Listener {
                 event.setCancelled(true);
                 return;
             }
+            if (event.getCurrentItem() == null && !event.getCurrentItem().getType().equals(Material.AIR)) return;
             if (event.getCurrentItem().getType().equals(Material.WHITE_STAINED_GLASS_PANE)) {
                 event.setCancelled(true);
             }
