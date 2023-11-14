@@ -17,6 +17,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -67,6 +68,11 @@ public class Events implements Listener {
         }
     }
 
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event) {
+        if (event.getItemDrop().getItemStack().equals(Yesssirhub.compass)) event.setCancelled(true);
+    }
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
@@ -80,7 +86,7 @@ public class Events implements Listener {
         player.teleport(player.getLocation().getWorld().getSpawnLocation().toCenterLocation());
         //player.showTitle(Title.title(Component.text(ChatColor.translateAlternateColorCodes('&', "&bWelcome to &lyesssirnet")), Component.text("Enjoy your stay!")));
         player.sendPlayerListHeaderAndFooter(Component.text(ChatColor.translateAlternateColorCodes('&', "&b&lyesssirnet - HUB")), Component.text());
-        if (Yesssirhub.compass != null) player.getInventory().setItem(4, Yesssirhub.compass);
+        if (Yesssirhub.compass != null) player.getInventory().setItem(0, Yesssirhub.compass);
     }
 
     @EventHandler
